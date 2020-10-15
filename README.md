@@ -13,8 +13,7 @@ software of [Polish Olympiad in Informatics](https://oi.edu.pl).
 
 ## Goals
 
-### The user must never see a 502 Bad Gateway error on contest-related and
-submission-critical views during a contest
+### The user must never see a 502 Bad Gateway error on contest-related and submission-critical views during a contest
 
 OIOIOI was written in Python programming language using Django web framework.
 Python is an interpreted language. Although there exists a JIT runtime called
