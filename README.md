@@ -58,8 +58,27 @@ a web framework should be chosen that is highly performant.
 
 ### All submission attempts must be preserved
 
-TODO: explain why deadlines should be less stiff and form validation should log
-partially correct submissions
+In the previous section I mentioned mitigations for servers being overwhelmed by
+traffic. I will now expand on the junior timed quiz incident I mentioned:
+
+One part of the Junior Olympiad is a quiz, where some questions are algorithmic
+and some are strictly related to the programming language the participant chose.
+Starting this year, the quiz can no longer be taken at any chosen point in a few
+months' timespan, but instead has to be completed in a strict 90 minutes period.
+
+Turns out that this poses a major problem when matched with OIOIOI's inability
+to handle high server load (especially when forced to render quizzes a lot).
+Another funny thing is that multiple choice answers require at least one answer
+to be chosen, and if nothing is chosen, the form validation fails. Children do
+not know it (and perhaps, shouldn't need to know it), submit at last possible
+moment, only to discover that submission failed.
+
+For now, our scientists have come up with a scheme that allows us to
+continuously log the last known partially good answer with some AJAX magic and a
+separately running Postgres-backed HTTP-accessed key-value store. But some of
+them argue that we should consider integrating this kind of mechanism into the
+whole submission process: to tentatively accept partially invalid submissions
+for later human review.
 
 
 ### Contest jury shouldn't have too much access to personal data
